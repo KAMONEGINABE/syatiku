@@ -11,8 +11,6 @@ public sealed class masako : MonoBehaviour
 
     public GameObject hitTrigger;
 
-gggoogogogo
-
     /// <summary>googogogog
     /// 連続入力を禁止する
     /// </summary>
