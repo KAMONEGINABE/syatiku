@@ -11,7 +11,7 @@ public sealed class masako : MonoBehaviour
 
     public GameObject hitTrigger;
 
-    /// <summary>
+    /// <summary>googogogog
     /// 連続入力を禁止する
     /// </summary>
     public static class MyInput
@@ -73,6 +73,8 @@ public sealed class masako : MonoBehaviour
         }
     }
 
+
+
     void Update()
     {
         if (MyInput.MyInputKeyDown(KeyCode.Z))
@@ -86,7 +88,6 @@ public sealed class masako : MonoBehaviour
         else if (MyInput.MyInputKeyDown(KeyCode.X))
         {
             print("X");
-            int X = 1
             Instantiate(hitTrigger,new Vector3(-5.4f,0.5f,-1.9f),Quaternion.identity);
         }
         else if (MyInput.MyInputKeyDown(KeyCode.C))
