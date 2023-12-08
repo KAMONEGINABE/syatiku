@@ -22,6 +22,10 @@ public sealed class masako : MonoBehaviour
         static float buttonDownTime;
         static float timer;
 
+        pubric static int rireki
+        {
+            return Myinput
+        }
 
         /// <summary>
         /// Simultaneous input prohibited
@@ -83,223 +87,223 @@ public sealed class masako : MonoBehaviour
             Instantiate(hitTrigger,new Vector3(-6.7f,0.5f,-1.9f),Quaternion.identity);
             Debug.Log("koko");
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.X))
+        if (MyInput.MyInputKeyDown(KeyCode.X))
         {
             print("X");
             int X = 1
             Instantiate(hitTrigger,new Vector3(-5.4f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.C))
+        if (MyInput.MyInputKeyDown(KeyCode.C))
         {
             print("C");
             Instantiate(hitTrigger,new Vector3(-4.1f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.V))
+        if (MyInput.MyInputKeyDown(KeyCode.V))
         {
             print("V");
             Instantiate(hitTrigger,new Vector3(-2.8f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.B))
+        if (MyInput.MyInputKeyDown(KeyCode.B))
         {
             print("B");
             Instantiate(hitTrigger,new Vector3(-1.5f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.N))
+         if (MyInput.MyInputKeyDown(KeyCode.N))
         {
             print("N");
             Instantiate(hitTrigger,new Vector3(-0.2f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.M))
+         if (MyInput.MyInputKeyDown(KeyCode.M))
         {
             print("M");
             Instantiate(hitTrigger,new Vector3(1.1f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.A))
+         if (MyInput.MyInputKeyDown(KeyCode.A))
         {
             print("A");
             Instantiate(hitTrigger,new Vector3(-7.3f,0.5f,-0.87f),Quaternion.identity);
 
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.S))
+         if (MyInput.MyInputKeyDown(KeyCode.S))
         {
             print("S");
             Instantiate(hitTrigger,new Vector3(-6.04f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.D))
+         if (MyInput.MyInputKeyDown(KeyCode.D))
         {
             print("D");
             Instantiate(hitTrigger,new Vector3(-4.78f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.F))
+         if (MyInput.MyInputKeyDown(KeyCode.F))
         {
             print("F");
             Instantiate(hitTrigger,new Vector3(-3.52f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.G))
+         if (MyInput.MyInputKeyDown(KeyCode.G))
         {
             print("G");
             Instantiate(hitTrigger,new Vector3(-2.26f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.H))
+         if (MyInput.MyInputKeyDown(KeyCode.H))
         {
             print("H");
             Instantiate(hitTrigger,new Vector3(-1f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.J))
+         if (MyInput.MyInputKeyDown(KeyCode.J))
         {
             print("J");
             Instantiate(hitTrigger,new Vector3(0.26f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.K))
+         if (MyInput.MyInputKeyDown(KeyCode.K))
         {
             print("K");
             Instantiate(hitTrigger,new Vector3(1.52f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.L))
+         if (MyInput.MyInputKeyDown(KeyCode.L))
         {
             print("L");
             Instantiate(hitTrigger,new Vector3(2.78f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Q))
+         if (MyInput.MyInputKeyDown(KeyCode.Q))
         {
             print("Q");
             Instantiate(hitTrigger,new Vector3(-7.95f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.W))
+         if (MyInput.MyInputKeyDown(KeyCode.W))
         {
             print("W");
             Instantiate(hitTrigger,new Vector3(-6.68f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.E))
+         if (MyInput.MyInputKeyDown(KeyCode.E))
         {
             print("E");
             Instantiate(hitTrigger,new Vector3(-5.41f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.R))
+         if (MyInput.MyInputKeyDown(KeyCode.R))
         {
             print("R");
             Instantiate(hitTrigger,new Vector3(-4.14f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.T))
+         if (MyInput.MyInputKeyDown(KeyCode.T))
         {
             print("T");
             Instantiate(hitTrigger,new Vector3(-2.87f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Y))
+         if (MyInput.MyInputKeyDown(KeyCode.Y))
         {
             print("Y");
             Instantiate(hitTrigger,new Vector3(-1.6f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.U))
+         if (MyInput.MyInputKeyDown(KeyCode.U))
         {
             print("U");
             Instantiate(hitTrigger,new Vector3(-0.33f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.I))
+         if (MyInput.MyInputKeyDown(KeyCode.I))
         {
             print("I");
             Instantiate(hitTrigger,new Vector3(0.94f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.O))
+         if (MyInput.MyInputKeyDown(KeyCode.O))
         {
             print("O");
             Instantiate(hitTrigger,new Vector3(2.21f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.P))
+         if (MyInput.MyInputKeyDown(KeyCode.P))
         {
             print("P");
             Instantiate(hitTrigger,new Vector3(3.48f,0.5f,0.16f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha1))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha1))
         {
             print("1");
             Instantiate(hitTrigger,new Vector3(-8.5f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha2))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha2))
         {
             print("2");
             Instantiate(hitTrigger,new Vector3(-7.25f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha3))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha3))
         {
             print("3");
             Instantiate(hitTrigger,new Vector3(-6f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha4))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha4))
         {
             print("4");
             Instantiate(hitTrigger,new Vector3(-4.75f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha5))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha5))
         {
             print("5");
             Instantiate(hitTrigger,new Vector3(-3.5f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha6))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha6))
         {
             print("6");
             Instantiate(hitTrigger,new Vector3(-2.25f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha7))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha7))
         {
             print("7");
             Instantiate(hitTrigger,new Vector3(-1f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha8))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha8))
         {
             print("8");
             Instantiate(hitTrigger,new Vector3(0.25f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha9))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha9))
         {
             print("9");
             Instantiate(hitTrigger,new Vector3(1.5f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Alpha0))
+         if (MyInput.MyInputKeyDown(KeyCode.Alpha0))
         {
             print("0");
             Instantiate(hitTrigger,new Vector3(2.75f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Minus))
+         if (MyInput.MyInputKeyDown(KeyCode.Minus))
         {
             print("-");
             Instantiate(hitTrigger,new Vector3(4f,0.5f,1.25f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Caret))
+         if (MyInput.MyInputKeyDown(KeyCode.Caret))
         {
             print("^");
             Instantiate(hitTrigger,new Vector3(5.25f,0.5f,1.25f),Quaternion.identity);
         }
 
-        else if (MyInput.MyInputKeyDown(KeyCode.Semicolon))
+         if (MyInput.MyInputKeyDown(KeyCode.Semicolon))
         {
             print(";");
             Instantiate(hitTrigger,new Vector3(4.04f,0.5f,-0.87f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Colon))
+         if (MyInput.MyInputKeyDown(KeyCode.Colon))
         {
             print(":");
             Instantiate(hitTrigger,new Vector3(5.3f,0.5f,-0.87f),Quaternion.identity);
         }
 
-        else if (MyInput.MyInputKeyDown(KeyCode.At))
+         if (MyInput.MyInputKeyDown(KeyCode.At))
         {
             print("@");
             Instantiate(hitTrigger,new Vector3(4.75f,0.5f,0.16f),Quaternion.identity);
         }
 
-        else if (MyInput.MyInputKeyDown(KeyCode.Comma))
+         if (MyInput.MyInputKeyDown(KeyCode.Comma))
         {
             print(",");
             Instantiate(hitTrigger,new Vector3(2.4f,0.5f,-1.9f),Quaternion.identity);
         }
-        else if (MyInput.MyInputKeyDown(KeyCode.Period))
+         if (MyInput.MyInputKeyDown(KeyCode.Period))
         {
             print(".");
             Instantiate(hitTrigger,new Vector3(3.7f,0.5f,-1.9f),Quaternion.identity);
         }
 
-        else if (MyInput.MyInputKeyDown(KeyCode.Slash))
+         if (MyInput.MyInputKeyDown(KeyCode.Slash))
         {
             print("/");
             Instantiate(hitTrigger,new Vector3(5f,0.5f,-1.9f),Quaternion.identity);
