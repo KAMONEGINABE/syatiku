@@ -18,14 +18,13 @@ public sealed class masako : MonoBehaviour
     {
         static bool isCheck_Input;
         static bool preventContinuityInput;
+        static float buttonDownTime;
+        static float timer; // この行を追加
+        static bool isCheck_Input;
+        static bool preventContinuityInput;
 
         static float buttonDownTime;
         static float timer;
-
-        pubric static int rireki
-        {
-            return Myinput
-        }
 
         /// <summary>
         /// Simultaneous input prohibited
@@ -77,6 +76,13 @@ public sealed class masako : MonoBehaviour
         }
     }
 
+
+    Vector3 KeyMemory_1 = new Vector3(0.0f,0.0f,0.0f);
+    Vector3 KeyMemory_2 = new Vector3(0.0f,0.0f,0.0f);
+    Vector3 KeyMemory_3 = new Vector3(0.0f,0.0f,0.0f);
+
+
+
     void Update()
     {
         if (MyInput.MyInputKeyDown(KeyCode.Z))
@@ -84,13 +90,12 @@ public sealed class masako : MonoBehaviour
             print("Z");
             KZ = true;
             ZBox = true;
-            Instantiate(hitTrigger,new Vector3(-6.7f,0.5f,-1.9f),Quaternion.identity);
+            Update_KeyMemory(-6.7f,0.5f,-1.9f);
             Debug.Log("koko");
         }
         if (MyInput.MyInputKeyDown(KeyCode.X))
         {
             print("X");
-            int X = 1
             Instantiate(hitTrigger,new Vector3(-5.4f,0.5f,-1.9f),Quaternion.identity);
         }
         if (MyInput.MyInputKeyDown(KeyCode.C))
@@ -307,10 +312,6 @@ public sealed class masako : MonoBehaviour
         {
             print("/");
             Instantiate(hitTrigger,new Vector3(5f,0.5f,-1.9f),Quaternion.identity);
-        }
-        else
-        {
-            //なんかtrueにする
         }
         //trueじゃなければHPマイナス
         if (MyInput.MyInputKeydown(KeyCode.Space, 1 / 2))
