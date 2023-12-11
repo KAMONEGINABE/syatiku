@@ -83,15 +83,16 @@ public sealed class masako : MonoBehaviour
     float absoluteValue_2 = Mathf.Abs(value_2);
 
 
-    void Update_KeyMemory(Vector3 NewKeyVector3)
+    
+    void Update()
+    {
+        void Update_KeyMemory(Vector3 NewKeyVector3)
     {
         KeyMemory_3 = KeyMemory_2;
         KeyMemory_2 = KeyMemory_1;
         KeyMemory_1 = NewKeyVector3;
         print(KeyMemory_1);
     }
-    void Update()
-    {
         if (MyInput.MyInputKeyDown(KeyCode.Z))
         {
             print("Z");
@@ -361,7 +362,7 @@ public sealed class masako : MonoBehaviour
             Update_KeyMemory(new Vector3(5f, 0.5f, -1.7f));
             Instantiate(hitTrigger, new Vector3(5f, 0.5f, -1.7f), Quaternion.identity);
         }
-        if (KeyMemory_1.x  == KeyMemory_2.x == KeyMemory_3.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
+        if (KeyMemory_1.x  == KeyMemory_2.x == KeyMemory_3.x > 0f && absoluteValue_1 < 1.5f && absoluteValue_2 < 1.5f)
         {
 
 
