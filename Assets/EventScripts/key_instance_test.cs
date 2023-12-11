@@ -158,58 +158,39 @@ public class key_instance_test : MonoBehaviour
         }
          if (MyInput.MyInputKeyDown(KeyCode.X))
         {
-            print("X");
-            Update_KeyMemory(new Vector3(-5.4f,0.5f,-1.9f));
-            Instantiate(hitTrigger,KeyMemory_1,Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.X );
         }
          if (MyInput.MyInputKeyDown(KeyCode.C))
         {
-            print("C");
-            Update_KeyMemory(new Vector3(-4.1f,0.5f,-1.9f));
-            Instantiate(hitTrigger,new Vector3(-4.1f,0.5f,-1.9f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.C );
         }
          if (MyInput.MyInputKeyDown(KeyCode.V))
         {
-            print("V");
-            Update_KeyMemory(new Vector3(-2.8f,0.5f,-1.9f));
-            Instantiate(hitTrigger,new Vector3(-2.8f,0.5f,-1.9f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.V );
         }
          if (MyInput.MyInputKeyDown(KeyCode.B))
         {
-            print("B");
-            Update_KeyMemory(new Vector3(-1.5f,0.5f,-1.9f));
-            Instantiate(hitTrigger,new Vector3(-1.5f,0.5f,-1.9f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.B );
         }
          if (MyInput.MyInputKeyDown(KeyCode.N))
         {
-            print("N");
-            Update_KeyMemory(new Vector3(-0.2f,0.5f,-1.9f));
-            Instantiate(hitTrigger,new Vector3(-0.2f,0.5f,-1.9f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.N );
         }
          if (MyInput.MyInputKeyDown(KeyCode.M))
         {
-            print("M");
-            Update_KeyMemory(new Vector3(1.1f,0.5f,-1.9f));
-            Instantiate(hitTrigger,new Vector3(1.1f,0.5f,-1.9f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.M );
         }
          if (MyInput.MyInputKeyDown(KeyCode.A))
         {
-            print("A");
-            Update_KeyMemory(new Vector3(-7.3f,0.5f,-0.87f));
-            Instantiate(hitTrigger,new Vector3(-7.3f,0.5f,-0.87f),Quaternion.identity);
-
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.A );
         }
          if (MyInput.MyInputKeyDown(KeyCode.S))
         {
-            print("S");
-            Update_KeyMemory(new Vector3(-6.04f,0.5f,-0.87f));
-            Instantiate(hitTrigger,new Vector3(-6.04f,0.5f,-0.87f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.S );
         }
          if (MyInput.MyInputKeyDown(KeyCode.D))
         {
-            print("D");
-            Update_KeyMemory(new Vector3(-4.78f,0.5f,-0.87f));
-            Instantiate(hitTrigger,new Vector3(-4.78f,0.5f,-0.87f),Quaternion.identity);
+            KeyData key_justNowPressed = keyDataList.Find( key => key.anyKeyCode == KeyCode.D );
         }
          if (MyInput.MyInputKeyDown(KeyCode.F))
         {
