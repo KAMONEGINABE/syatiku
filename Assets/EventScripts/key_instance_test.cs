@@ -332,14 +332,17 @@ public class key_instance_test : MonoBehaviour
         {
             key_justNowPressed = KeyDataList.Find( key => key.anyKeyCode == KeyCode.Slash );
         }
-        //trueじゃなければHPマイナス
         if (MyInput.MyInputKeydown(KeyCode.Space, 1 / 2))
         {
             print("3秒待つと押せるよ");
         }
+        
         if (Input.anyKeyDown)
         {
             Update_KeyMemory();
+            print(key_oneTimeAgoPressed.keyPosition);
+            print(key_twoTimeAgoPressed.keyPosition);
+            print(key_threeTimeAgoPressed.keyPosition);
         }
     }
 }
