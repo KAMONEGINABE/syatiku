@@ -345,10 +345,7 @@ public class key_instance_test : MonoBehaviour
         if (Input.anyKeyDown)
         {
             Update_KeyMemory();
-            print(key_oneTimeAgoPressed.keyPosition);
-            print(key_twoTimeAgoPressed.keyPosition);
-            print(key_threeTimeAgoPressed.keyPosition);
-
+            
             Instantiate(hitTrigger,key_oneTimeAgoPressed.keyPosition,Quaternion.identity);
 
             value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
