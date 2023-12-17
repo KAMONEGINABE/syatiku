@@ -88,10 +88,11 @@ public class key_instance_test : MonoBehaviour
     ///<summary>
     ///key_justNowPressedはUpdate_KeyMemory内でのみ使う。キーが入力されたらまず最初にUpdate_KeyMemoryを実行して、key_oneTimeAgoPressedにデータを移してから、そちらを参照すること。
     ///</summary>
-    float value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
-    float absoluteValue_1 = Mathf.Abs(value_1);
-    float value_2 = key_twoTimeAgoPressed.keyPosition.x - key_threeTimeAgoPressed.keyPosition.x;
-    float absoluteValue_2 = Mathf.Abs(value_2);
+    
+        float value_1;
+        float absoluteValue_1;
+        float value_2;
+        float absoluteValue_2;
 
     void Update_KeyMemory()
     {
@@ -105,7 +106,6 @@ public class key_instance_test : MonoBehaviour
 
     void Start()
     {
-        
         KeyDataList.Add( new KeyData( "Z",KeyCode.Z,new Vector3(-6.7f,0.5f,-1.7f)));
         KeyDataList.Add( new KeyData( "X",KeyCode.X,new Vector3(-5.4f,0.5f,-1.7f)));
         KeyDataList.Add( new KeyData( "C",KeyCode.C,new Vector3(-4.1f,0.5f,-1.7f)));
@@ -156,7 +156,7 @@ public class key_instance_test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (MyInput.MyInputKeyDown(KeyCode.Z))
         {
             key_justNowPressed = KeyDataList.Find(key => key.anyKeyCode == KeyCode.Z);
@@ -341,23 +341,29 @@ public class key_instance_test : MonoBehaviour
         {
             print("3秒待つと押せるよ");
         }
-        if (key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
-        {
 
-Instantiate(ComboTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);
-
-            key_oneTimeAgoPressed.keyPosition.x = 0;
-            key_twoTimeAgoPressed.keyPosition.x = 0;
-            key_threeTimeAgoPressed.keyPosition.x = 0;
-        }
         if (Input.anyKeyDown)
         {
             Update_KeyMemory();
             print(key_oneTimeAgoPressed.keyPosition);
             print(key_twoTimeAgoPressed.keyPosition);
             print(key_threeTimeAgoPressed.keyPosition);
-            
+
             Instantiate(hitTrigger,key_oneTimeAgoPressed.keyPosition,Quaternion.identity);
+
+            value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
+            absoluteValue_1 = Mathf.Abs(value_1);
+            value_2 = key_twoTimeAgoPressed.keyPosition.x - key_threeTimeAgoPressed.keyPosition.x;
+            absoluteValue_2 = Mathf.Abs(value_2);
+        }
+
+        if (key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
+        {
+            Instantiate(ComboTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);
+
+            key_oneTimeAgoPressed.keyPosition.x = 0f;
+            key_twoTimeAgoPressed.keyPosition.x = 0f;
+            key_threeTimeAgoPressed.keyPosition.x = 0f;
         }
     }
 }

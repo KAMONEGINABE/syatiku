@@ -61,8 +61,9 @@
     <Compile Include="Assets\EventScripts\Appear.cs" />
     <Compile Include="Assets\EventScripts\Disappear.cs" />
     <Compile Include="Assets\EventScripts\TriggerBase.cs" />
+    <Compile Include="Assets\EventScripts\masako.cs" />
     <Compile Include="Assets\EventScripts\CountdownTrigger.cs" />
-    <Compile Include="Assets\EventScripts\ComboBox.cs" />
+    <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\EventScripts\ActionBase.cs" />
     <Compile Include="Assets\EventScripts\AnimMessage.cs" />
     <Compile Include="Assets\EventScripts\TimerTrigger.cs" />
@@ -70,7 +71,6 @@
     <Compile Include="Assets\EventScripts\InputTrigger.cs" />
     <Compile Include="Assets\EventScripts\LogDisplay.cs" />
     <Compile Include="Assets\EventScripts\RandomPosition.cs" />
-    <Compile Include="Assets\EventScripts\key_instance_test.cs" />
     <Compile Include="Assets\EventScripts\box.cs" />
   </ItemGroup>
   <ItemGroup>
