@@ -99,7 +99,7 @@ public class key_instance_test : MonoBehaviour
         key_threeTimeAgoPressed = key_twoTimeAgoPressed;
         key_twoTimeAgoPressed = key_oneTimeAgoPressed;
         key_oneTimeAgoPressed = key_justNowPressed;
-        print(key_oneTimeAgoPressed);
+        print(key_oneTimeAgoPressed.keyName);
     }
 
     List<KeyData> KeyDataList = new List<KeyData>();
@@ -345,7 +345,7 @@ public class key_instance_test : MonoBehaviour
         if (Input.anyKeyDown)
         {
             Update_KeyMemory();
-            
+
             Instantiate(hitTrigger,key_oneTimeAgoPressed.keyPosition,Quaternion.identity);
 
             value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
@@ -356,7 +356,7 @@ public class key_instance_test : MonoBehaviour
 
         if (key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
         {
-            Instantiate(ComboTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);
+            Instantiate(hitTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);///【注意】comboTrigger完成してないからアサインできなくて、めっちゃエラー流れちゃうので一旦comboTriggerをhitTriggerに変えてます
 
             key_oneTimeAgoPressed.keyPosition.x = 0f;
             key_twoTimeAgoPressed.keyPosition.x = 0f;
