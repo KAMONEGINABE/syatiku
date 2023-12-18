@@ -73,6 +73,7 @@
     <Compile Include="Assets\EventScripts\LogDisplay.cs" />
     <Compile Include="Assets\EventScripts\RandomPosition.cs" />
     <Compile Include="Assets\EventScripts\key_instance_test.cs" />
+    <Compile Include="Assets\EventScripts\lifeCalculator.cs" />
     <Compile Include="Assets\EventScripts\box.cs" />
   </ItemGroup>
   <ItemGroup>
