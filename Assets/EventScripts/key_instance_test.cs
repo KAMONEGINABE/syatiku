@@ -359,7 +359,7 @@ public class key_instance_test : MonoBehaviour
             absoluteValue_2 = Mathf.Abs(value_2);
         }
 
-        if ( value_1==value_2 )///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
+        if ( value_1==-1.3 && value_2==-1.3 )///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
         {
             Instantiate(hitTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);///【注意】comboTrigger完成してないからアサインできなくて、めっちゃエラー流れちゃうので一旦comboTriggerをhitTriggerに変えてます
 
