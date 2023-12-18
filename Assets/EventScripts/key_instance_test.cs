@@ -6,7 +6,16 @@ public class key_instance_test : MonoBehaviour
 {
     public GameObject hitTrigger;
     public GameObject ComboTrigger;
-    boolean Combobar1;
+    bool Combobar1;
+
+    /// <summary>
+    /// デバッグ用仮置き変数
+    /// </summary>
+    float toriaezu;
+    /// <summary>
+    /// デバッグ用仮置き変数終わり
+    /// </summary>
+
     public static class MyInput
     {
         static bool isCheck_Input;
@@ -376,12 +385,12 @@ public class key_instance_test : MonoBehaviour
 
         if (Combobar1)
         {
-            vecter3.posi = this transform.position;
+            Vector3 posi = this.transform.position;
             posi = new Vector3(posi.x - 1, posi.y, posi.z);
             this.transform.position = posi;
         }
 
-        if (this transform.position.x <= "画面端のX座標")
+        if (this.transform.position.x <= toriaezu)///toriaezu=画面端のX座標
         {
             Combobar1 = false;
         }
