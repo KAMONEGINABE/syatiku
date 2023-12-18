@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1763869196386183945}
   - component: {fileID: 6499833509463325052}
   - component: {fileID: -869493201897919585}
+  - component: {fileID: 1118282889831676701}
   m_Layer: 0
   m_Name: hitTrigger
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2236997700951109337
 MeshFilter:
@@ -190,5 +191,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df96669965cb4d29a0176903c854365a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1118282889831676701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473851407427053060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6296bdcf98a6aa14cbea710fb0eda20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
