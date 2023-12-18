@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class key_instance_test : MonoBehaviour
 {
- public GameObject hitTrigger;
-  public GameObject ComboTrigger;
+    public GameObject hitTrigger;
+    public GameObject ComboTrigger;
+    boolean Combobar1;
     public static class MyInput
     {
         static bool isCheck_Input;
@@ -88,11 +89,11 @@ public class key_instance_test : MonoBehaviour
     ///<summary>
     ///key_justNowPressedはUpdate_KeyMemory内でのみ使う。キーが入力されたらまず最初にUpdate_KeyMemoryを実行して、key_oneTimeAgoPressedにデータを移してから、そちらを参照すること。
     ///</summary>
-    
-        float value_1;
-        float absoluteValue_1;
-        float value_2;
-        float absoluteValue_2;
+
+    float value_1;
+    float absoluteValue_1;
+    float value_2;
+    float absoluteValue_2;
 
     public class Combo
     {
@@ -111,57 +112,57 @@ public class key_instance_test : MonoBehaviour
 
     void Start()
     {
-        KeyDataList.Add( new KeyData( "Z",KeyCode.Z,new Vector3(-6.7f,0.5f,-1.7f)));
-        KeyDataList.Add( new KeyData( "X",KeyCode.X,new Vector3(-5.4f,0.5f,-1.7f)));
-        KeyDataList.Add( new KeyData( "C",KeyCode.C,new Vector3(-4.1f,0.5f,-1.7f)));
-        KeyDataList.Add( new KeyData( "V",KeyCode.V,new Vector3(-2.8f,0.5f,-1.7f)));
-        KeyDataList.Add (new KeyData( "B", KeyCode.B, new Vector3(-1.5f, 0.5f, -1.7f)));
-        KeyDataList.Add( new KeyData( "N", KeyCode.N, new Vector3(-0.2f, 0.5f, -1.7f)));
-        KeyDataList.Add( new KeyData( "M", KeyCode.M, new Vector3(1.1f, 0.5f, -1.7f)));
-        KeyDataList.Add( new KeyData( "A", KeyCode.A, new Vector3(-7.3f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "S", KeyCode.S, new Vector3(-6.04f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "D", KeyCode.D, new Vector3(-4.78f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "F", KeyCode.F, new Vector3(-3.52f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "G", KeyCode.G, new Vector3(-2.26f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "H", KeyCode.H, new Vector3(-1f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "J", KeyCode.J, new Vector3(0.26f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "K", KeyCode.K, new Vector3(1.52f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "L", KeyCode.L, new Vector3(2.78f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "Q", KeyCode.Q, new Vector3(-7.95f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "W", KeyCode.W, new Vector3(-6.68f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "E", KeyCode.E, new Vector3(-5.41f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "R", KeyCode.R, new Vector3(-4.14f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "T", KeyCode.T, new Vector3(-2.87f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "Y", KeyCode.Y, new Vector3(-1.6f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "U", KeyCode.U, new Vector3(-0.33f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "I", KeyCode.I, new Vector3(0.94f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "O", KeyCode.O, new Vector3(2.21f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "P", KeyCode.P, new Vector3(3.48f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( "1", KeyCode.Alpha1, new Vector3(-8.5f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "2", KeyCode.Alpha2, new Vector3(-7.25f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "3", KeyCode.Alpha3, new Vector3(-6f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "4", KeyCode.Alpha4, new Vector3(-4.75f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "5", KeyCode.Alpha5, new Vector3(-3.5f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "6", KeyCode.Alpha6, new Vector3(-2.25f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "7", KeyCode.Alpha7, new Vector3(-1f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "8", KeyCode.Alpha8, new Vector3(0.25f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "9", KeyCode.Alpha9, new Vector3(1.5f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "0", KeyCode.Alpha0, new Vector3(2.75f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "-", KeyCode.Minus, new Vector3(4f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( "^", KeyCode.Caret, new Vector3(5.25f, 0.5f, 1.45f)));
-        KeyDataList.Add( new KeyData( ";", KeyCode.Semicolon, new Vector3(4.04f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( ":", KeyCode.Colon, new Vector3(5.3f, 0.5f, -0.67f)));
-        KeyDataList.Add( new KeyData( "@", KeyCode.At, new Vector3(4.75f, 0.5f, 0.36f)));
-        KeyDataList.Add( new KeyData( ",", KeyCode.Comma, new Vector3(2.4f, 0.5f, -1.7f)));
-        KeyDataList.Add( new KeyData( ".", KeyCode.Period, new Vector3(3.7f, 0.5f, -1.7f)));
-        KeyDataList.Add( new KeyData( "/", KeyCode.Slash, new Vector3(5f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("Z", KeyCode.Z, new Vector3(-6.7f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("X", KeyCode.X, new Vector3(-5.4f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("C", KeyCode.C, new Vector3(-4.1f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("V", KeyCode.V, new Vector3(-2.8f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("B", KeyCode.B, new Vector3(-1.5f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("N", KeyCode.N, new Vector3(-0.2f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("M", KeyCode.M, new Vector3(1.1f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("A", KeyCode.A, new Vector3(-7.3f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("S", KeyCode.S, new Vector3(-6.04f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("D", KeyCode.D, new Vector3(-4.78f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("F", KeyCode.F, new Vector3(-3.52f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("G", KeyCode.G, new Vector3(-2.26f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("H", KeyCode.H, new Vector3(-1f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("J", KeyCode.J, new Vector3(0.26f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("K", KeyCode.K, new Vector3(1.52f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("L", KeyCode.L, new Vector3(2.78f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("Q", KeyCode.Q, new Vector3(-7.95f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("W", KeyCode.W, new Vector3(-6.68f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("E", KeyCode.E, new Vector3(-5.41f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("R", KeyCode.R, new Vector3(-4.14f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("T", KeyCode.T, new Vector3(-2.87f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("Y", KeyCode.Y, new Vector3(-1.6f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("U", KeyCode.U, new Vector3(-0.33f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("I", KeyCode.I, new Vector3(0.94f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("O", KeyCode.O, new Vector3(2.21f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("P", KeyCode.P, new Vector3(3.48f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData("1", KeyCode.Alpha1, new Vector3(-8.5f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("2", KeyCode.Alpha2, new Vector3(-7.25f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("3", KeyCode.Alpha3, new Vector3(-6f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("4", KeyCode.Alpha4, new Vector3(-4.75f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("5", KeyCode.Alpha5, new Vector3(-3.5f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("6", KeyCode.Alpha6, new Vector3(-2.25f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("7", KeyCode.Alpha7, new Vector3(-1f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("8", KeyCode.Alpha8, new Vector3(0.25f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("9", KeyCode.Alpha9, new Vector3(1.5f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("0", KeyCode.Alpha0, new Vector3(2.75f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("-", KeyCode.Minus, new Vector3(4f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData("^", KeyCode.Caret, new Vector3(5.25f, 0.5f, 1.45f)));
+        KeyDataList.Add(new KeyData(";", KeyCode.Semicolon, new Vector3(4.04f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData(":", KeyCode.Colon, new Vector3(5.3f, 0.5f, -0.67f)));
+        KeyDataList.Add(new KeyData("@", KeyCode.At, new Vector3(4.75f, 0.5f, 0.36f)));
+        KeyDataList.Add(new KeyData(",", KeyCode.Comma, new Vector3(2.4f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData(".", KeyCode.Period, new Vector3(3.7f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("/", KeyCode.Slash, new Vector3(5f, 0.5f, -1.7f)));
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (MyInput.MyInputKeyDown(KeyCode.Z))
         {
             key_justNowPressed = KeyDataList.Find(key => key.anyKeyCode == KeyCode.Z);
@@ -351,7 +352,7 @@ public class key_instance_test : MonoBehaviour
         {
             Update_KeyMemory();
 
-            Instantiate(hitTrigger,key_oneTimeAgoPressed.keyPosition,Quaternion.identity);
+            Instantiate(hitTrigger, key_oneTimeAgoPressed.keyPosition, Quaternion.identity);
 
             value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
             absoluteValue_1 = Mathf.Abs(value_1);
@@ -359,7 +360,7 @@ public class key_instance_test : MonoBehaviour
             absoluteValue_2 = Mathf.Abs(value_2);
         }
 
-        if ( value_1==-1.3 && value_2==-1.3 )///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
+        if (value_1 == -1.3 && value_2 == -1.3)///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
         {
             Instantiate(hitTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);///【注意】comboTrigger完成してないからアサインできなくて、めっちゃエラー流れちゃうので一旦comboTriggerをhitTriggerに変えてます
 
@@ -367,7 +368,22 @@ public class key_instance_test : MonoBehaviour
             key_twoTimeAgoPressed.keyPosition.x = 0f;
             key_threeTimeAgoPressed.keyPosition.x = 0f;
 
+
+            Combobar1 = true;
+
             print("コンボ発生！");
+        }
+
+        if (Combobar1)
+        {
+            vecter3.posi = this transform.position;
+            posi = new Vector3(posi.x - 1, posi.y, posi.z);
+            this.transform.position = posi;
+        }
+
+        if (this transform.position.x <= "画面端のX座標")
+        {
+            Combobar1 = false;
         }
     }
 }
