@@ -6,7 +6,10 @@ public class key_instance_test : MonoBehaviour
 {
     public GameObject hitTrigger;
     public GameObject ComboTrigger;
-    bool Combobar1;
+    bool IsActive_Combobar1;
+    bool IsActive_Combobar2;
+    bool IsActive_Combobar3;
+    bool IsActive_Combobar4;
 
     /// <summary>
     /// デバッグ用仮置き変数
@@ -378,21 +381,36 @@ public class key_instance_test : MonoBehaviour
             key_threeTimeAgoPressed.keyPosition.x = 0f;
 
 
-            Combobar1 = true;
+            if (Chokuzenhozon.z=1.45f)
+            {
+                IsActive_Combobar1 = true;
+            }
+            if (Chokuzenhozon.z=0.36f)
+            {
+                IsActive_Combobar2 = true;
+            }
+            if (Chokuzenhozon.z=-0.67f)
+            {
+                IsActive_Combobar3 = true;
+            }
+            if (Chokuzenhozon.z=-1.7f)
+            {
+                IsActive_Combobar4 = true;
+            }
 
-            print("コンボ発生！");
+            print("コンボ発生！");//デバック用
+
         }
 
-        if (Combobar1)
+        if (IsActive_Combobar1)
         {
-            Vector3 posi = this.transform.position;
-            posi = new Vector3(posi.x - 1, posi.y, posi.z);
-            this.transform.position = posi;
+            GameObject Combobar1 = GameObject.Find("Combobar1");
+            Combobar1.transform.position.x--;
         }
 
-        if (this.transform.position.x <= toriaezu)///toriaezu=画面端のX座標
+        if (Combobar1.transform.position.x <= -1.2)///toriaezu=画面端のX座標
         {
-            Combobar1 = false;
+            IsActive_Combobar1 = false;
         }
     }
 }
