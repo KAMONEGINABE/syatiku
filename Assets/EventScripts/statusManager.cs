@@ -1,25 +1,35 @@
+/*
+目次
+    Ⅰ.外部処理インポート
+    Ⅱ.社員ステータス関連
+    Ⅲ.プレイヤーステータス関連
+    Ⅳ.起動時セットアップ
+*/
+
+// Ⅰ.外部処理インポート
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class statusManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public class employeeStatus
+    // Ⅱ.社員ステータス関連
+    public class employeeStatus     //社員データとそれを使った関数を全部格納した型
     {
-        int registrationNumber;
+        int ID;
         float strength;
         float scoreIncreace;
         int hitPoint;
 
-        public employeeStatus(int newRegistrationNumber,float newStrength)
+        public employeeStatus(int newID, float newStrength)
         {
-            registrationNumber = newRegistrationNumber;
+            ID = newID;
             strength = newStrength;
             scoreIncreace = strength;
             hitPoint = (int)strength;
         }
-        public void status_justNowEscaped(float newStrength)
+        public void status_setAgain(float newStrength)
         {
             strength = newStrength;
             scoreIncreace = strength;
@@ -27,42 +37,108 @@ public class statusManager : MonoBehaviour
         }
         public bool status_decreaceHitPoint(int damagePoint)
         {
-            if ( registrationNumber != 0)
+            hitPoint -= damagePoint;
+            if (ID != 0 && hitPoint <= 0)
             {
-                hitPoint -= damagePoint;
-                if (hitPoint <= 0) { return true; }
-                else{ return false; }
+                status_setAgain(strength);
+                return true;
             }
-            else{ return false; }
+            else { return false; }
         }
         public void forDebug_showAllStatus()
         {
-            print(registrationNumber);
+            print(ID);
             print(strength);
             print(scoreIncreace);
             print(hitPoint);
         }
     }
 
-    public employeeStatus[] StatusDataList = new employeeStatus[13];
-
-    void Start()
+    public employeeStatus[] StatusDataList;
+    public void setupEmployeeStatus(int a)///aは登場する全社員の人数
     {
+        StatusDataList = new employeeStatus[a + 1];///0番目は空データにしたので1つ多め。
 
-        for (int employeeNumber = 1; employeeNumber <= 12; employeeNumber++)
+        for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
         {
-            StatusDataList[employeeNumber] = new employeeStatus(employeeNumber,100f);
+            StatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 100f);
         }
 
-        void forDebug_showAllEmployeeStatus()
+    }
+    public void forDebug_showAllEmployeeStatus(int a)///aは登場する全社員の人数
+    {
+        for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
         {
-            for (int employeeNumber = 1; employeeNumber <= 12; employeeNumber++)
-            {
-                print(employeeNumber);
-                StatusDataList[employeeNumber].forDebug_showAllStatus();
-            }
+            print(employeeNumber);
+            StatusDataList[employeeNumber].forDebug_showAllStatus();
         }
     }
 
+    // Ⅲ.プレイヤーステータス関連
 
+    public class playerStatus
+    {
+        public class keyAttack
+        {
+            bool isComboAvailable;
+            int remainingShots;
+            int alreadyUsedShot;
+            float cooltimeSecond;
+            public int damage{ get; }
+            float advancedParameters;
+            public keyAttack(int newRemainingShots, float newCooltimeSecond, int newDamage, float newAdvancedParameters)
+            {
+                isComboAvailable = true;
+                remainingShots = newRemainingShots;
+                alreadyUsedShot = 0;
+                cooltimeSecond = newCooltimeSecond * 60 * Time.deltaTime;
+                damage = newDamage;
+                advancedParameters = newAdvancedParameters;
+            }
+            public keyAttack(int newRemainingShots, int newCooltimeSecond, int newDamage)
+            {
+                isComboAvailable = true;
+                remainingShots = newRemainingShots;
+                alreadyUsedShot = 0;
+                cooltimeSecond = newCooltimeSecond * 60;
+                damage = newDamage;
+            }
+            public void consumeRemainingShots()
+            {
+                alreadyUsedShot++;
+                if(remainingShots<=alreadyUsedShot){
+                    alreadyUsedShot = 0;
+                    startCooltime;
+                }
+            }
+            public IEnumerator startCooltime()
+            {
+                isComboAvailable = false;
+                yield return new WaitForSeconds(cooltimeSecond);
+                isComboAvailable = true;
+            }
+        }
+
+        public Dictionary<string, keyAttack> keyAttackList;
+        public void setupKeyAttack()
+        {
+            keyAttackList = new Dictionary<string, keyAttack>()
+            {
+                {"通常攻撃",new keyAttack(1,0,1,0)},
+                {"横一列",new keyAttack(5,10,5)},
+                {"四角",new keyAttack(3,15,20)},
+                {"縦壁",new keyAttack(1,15,0,10)}
+            };
+        }
+    }
+
+    public playerStatus playerStatusInstance;
+
+    //　Ⅳ.ゲーム起動時処理
+    void Start()
+    {
+        setupEmployeeStatus(12);
+        playerStatusInstance = new playerStatus();
+        playerStatusInstance.setupKeyAttack();
+    }
 }
