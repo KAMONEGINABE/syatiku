@@ -80,7 +80,7 @@ public class statusManager : MonoBehaviour
     {
         public class keyAttack
         {
-            bool isComboAvailable;
+            public bool isComboAvailable{ get; private set;}
             int remainingShots;
             int alreadyUsedShot;
             float cooltimeSecond;
@@ -108,7 +108,7 @@ public class statusManager : MonoBehaviour
                 alreadyUsedShot++;
                 if(remainingShots<=alreadyUsedShot){
                     alreadyUsedShot = 0;
-                    startCooltime;
+                    startCooltime();
                 }
             }
             public IEnumerator startCooltime()
