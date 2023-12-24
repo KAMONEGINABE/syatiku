@@ -376,27 +376,28 @@ public class key_instance_test : MonoBehaviour
         {
             Instantiate(hitTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);///【注意】comboTrigger完成してないからアサインできなくて、めっちゃエラー流れちゃうので一旦comboTriggerをhitTriggerに変えてます
 
+            if (key_oneTimeAgoPressed.keyPosition.z == 1.45f)
+            {
+                IsActive_Combobar1 = true;
+            }
+            if (key_oneTimeAgoPressed.keyPosition.z == 0.36f)
+            {
+                IsActive_Combobar2 = true;
+            }
+            if (key_oneTimeAgoPressed.keyPosition.z == -0.67f)
+            {
+                IsActive_Combobar3 = true;
+            }
+            if (key_oneTimeAgoPressed.keyPosition.z == -1.7f)
+            {
+                IsActive_Combobar4 = true;
+            }
+
             key_oneTimeAgoPressed.keyPosition.x = 0f;
             key_twoTimeAgoPressed.keyPosition.x = 0f;
             key_threeTimeAgoPressed.keyPosition.x = 0f;
 
-
-            if (Chokuzenhozon.z == 1.45f)
-            {
-                IsActive_Combobar1 = true;
-            }
-            if (Chokuzenhozon.z == 0.36f)
-            {
-                IsActive_Combobar2 = true;
-            }
-            if (Chokuzenhozon.z == -0.67f)
-            {
-                IsActive_Combobar3 = true;
-            }
-            if (Chokuzenhozon.z == -1.7f)
-            {
-                IsActive_Combobar4 = true;
-            }
+            
 
             print("コンボ発生！");//デバック用
 
