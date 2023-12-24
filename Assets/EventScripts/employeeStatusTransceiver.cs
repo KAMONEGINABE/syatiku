@@ -16,6 +16,5 @@ public class employeeStatusTransceiver : MonoBehaviour
         
         justNowHit = true;
         destroyed = statusManager.StatusDataList[employeeNumber].status_decreaceHitPoint(damage);
-        statusManager.StatusDataList[employeeNumber].forDebug_showAllStatus();
     }
 }

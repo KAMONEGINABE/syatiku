@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6296bdcf98a6aa14cbea710fb0eda20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  attackType: "\u6A2A\u4E00\u5217"
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +979,7 @@ GameObject:
   - component: {fileID: 659399648}
   - component: {fileID: 659399647}
   - component: {fileID: 659399646}
+  - component: {fileID: 659399650}
   m_Layer: 0
   m_Name: Combobar3
   m_TagString: Untagged
@@ -1072,6 +1073,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659399650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659399645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6296bdcf98a6aa14cbea710fb0eda20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: "\u6A2A\u4E00\u5217"
 --- !u!1 &712951767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,11 +1201,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 712951767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a53f0d75fb52a41b88c7debb5be52d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6296bdcf98a6aa14cbea710fb0eda20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTrigger: {fileID: 0}
-  ComboTrigger: {fileID: 0}
+  attackType: "\u6A2A\u4E00\u5217"
 --- !u!1 &801026742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,6 +1811,7 @@ GameObject:
   - component: {fileID: 1319737055}
   - component: {fileID: 1319737054}
   - component: {fileID: 1319737053}
+  - component: {fileID: 1319737057}
   m_Layer: 0
   m_Name: Combobar2
   m_TagString: Untagged
@@ -1891,6 +1905,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1319737057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319737052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6296bdcf98a6aa14cbea710fb0eda20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: "\u6A2A\u4E00\u5217"
 --- !u!1 &1510776340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94680d6168346cb4691baa524aa0487e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  employeeNumber: 0
+  employeeNumber: 1
   justNowHit: 0
   destroyed: 0
 --- !u!1 &1745123384
@@ -2734,7 +2761,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitTrigger: {fileID: 5473851407427053060, guid: f0e509ae1db447d459d1fcafecf55e79,
     type: 3}
-  ComboTrigger: {fileID: 0}
 --- !u!4 &1959311179
 Transform:
   m_ObjectHideFlags: 0

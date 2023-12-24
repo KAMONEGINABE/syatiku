@@ -205,3 +205,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6296bdcf98a6aa14cbea710fb0eda20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackType: "\u901A\u5E38\u653B\u6483"

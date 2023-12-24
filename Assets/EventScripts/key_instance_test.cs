@@ -5,7 +5,6 @@ using UnityEngine;
 public class key_instance_test : MonoBehaviour
 {
     public GameObject hitTrigger;
-    public GameObject ComboTrigger;
     bool IsActive_Combobar1;
     bool IsActive_Combobar2;
     bool IsActive_Combobar3;
@@ -94,10 +93,10 @@ public class key_instance_test : MonoBehaviour
         }
     }
 
-    KeyData key_justNowPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
-    KeyData key_oneTimeAgoPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
-    KeyData key_twoTimeAgoPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
-    KeyData key_threeTimeAgoPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
+    KeyData key_justNowPressed;
+    KeyData key_oneTimeAgoPressed;
+    KeyData key_twoTimeAgoPressed;
+    KeyData key_threeTimeAgoPressed;
     ///<summary>
     ///key_justNowPressedはUpdate_KeyMemory内でのみ使う。キーが入力されたらまず最初にUpdate_KeyMemoryを実行して、key_oneTimeAgoPressedにデータを移してから、そちらを参照すること。
     ///</summary>
@@ -110,6 +109,14 @@ public class key_instance_test : MonoBehaviour
     public class Combo
     {
 
+    }
+
+    void setupKeyMemory()
+    {
+        key_justNowPressed = new KeyData("caution", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
+        key_oneTimeAgoPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
+        key_twoTimeAgoPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
+        key_threeTimeAgoPressed = new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f));
     }
 
     void Update_KeyMemory()
@@ -169,6 +176,7 @@ public class key_instance_test : MonoBehaviour
         KeyDataList.Add(new KeyData(".", KeyCode.Period, new Vector3(3.7f, 0.5f, -1.7f)));
         KeyDataList.Add(new KeyData("/", KeyCode.Slash, new Vector3(5f, 0.5f, -1.7f)));
 
+        setupKeyMemory();
     }
 
     // Update is called once per frame
@@ -374,8 +382,7 @@ public class key_instance_test : MonoBehaviour
 
         if (value_1 == -1.3 && value_2 == -1.3)///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
         {
-            Instantiate(hitTrigger, new Vector3(12.80028f, 0.2780385f, 0.85976f), Quaternion.identity);///【注意】comboTrigger完成してないからアサインできなくて、めっちゃエラー流れちゃうので一旦comboTriggerをhitTriggerに変えてます
-
+            
             if (key_oneTimeAgoPressed.keyPosition.z == 1.45f)
             {
                 IsActive_Combobar1 = true;
@@ -393,20 +400,24 @@ public class key_instance_test : MonoBehaviour
                 IsActive_Combobar4 = true;
             }
 
-            key_oneTimeAgoPressed.keyPosition.x = 0f;
-            key_twoTimeAgoPressed.keyPosition.x = 0f;
-            key_threeTimeAgoPressed.keyPosition.x = 0f;
-
-            
+            key_oneTimeAgoPressed.keyPosition = new Vector3(0f,0f,0f);
+            key_twoTimeAgoPressed.keyPosition = new Vector3(0f,0f,0f);
+            key_threeTimeAgoPressed.keyPosition = new Vector3(0f,0f,0f); 
 
             print("コンボ発生！");//デバック用
 
         }
 
+        GameObject Combobar1 = GameObject.Find("Combobar1");
+        GameObject Combobar2 = GameObject.Find("Combobar2");
+        GameObject Combobar3 = GameObject.Find("Combobar3");
+        GameObject Combobar4 = GameObject.Find("Combobar4");
+
         if (IsActive_Combobar1)
         {
-            GameObject Combobar1 = GameObject.Find("Combobar1");
-            Combobar1.transform.position.x--;
+            Vector3 temporaryPosition = object.transform.position;
+            temporaryPosition.x--;
+            object.transform.position = temporaryPosition;
         }
 
         if (Combobar1.transform.position.x <= -1.2)///toriaezu=画面端のX座標
