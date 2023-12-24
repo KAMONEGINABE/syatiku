@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class key_instance_test : MonoBehaviour
+public class keyInputManager : MonoBehaviour
 {
     public GameObject hitTrigger;
     bool IsActive_Combobar1;
