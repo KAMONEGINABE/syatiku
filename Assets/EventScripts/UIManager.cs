@@ -6,6 +6,11 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreUI;
+    [SerializeField] TextMeshProUGUI resultScoreUI;
+    [SerializeField] TextMeshProUGUI resultEmployeeNumberUI;
+    [SerializeField] TextMeshProUGUI resultPreventEscapeUI;
+    [SerializeField] TextMeshProUGUI resultSucceedEscapeUI;
+    [SerializeField] TextMeshProUGUI resultTotalDamageUI;
     public void drawResultCanvas()
     {
         var statusManager = GameObject.FindObjectOfType<statusManager>();
@@ -26,11 +31,19 @@ public class UIManager : MonoBehaviour
         GameObject resultCanvas = GameObject.Find("resultCanvas");
         var componentResultCanvas = resultCanvas.GetComponent<Canvas>();
         componentResultCanvas.enabled = true;
+        
+        resultScoreUI.text = result.endgameScore.ToString();
+        resultEmployeeNumberUI.text = result.endgameEmployeeNumber.ToString();
+        resultPreventEscapeUI.text = result.endgamePreventEscapeNumber.ToString();
+        resultSucceedEscapeUI.text = result.endgameSucceedEscapeNumber.ToString();
+        resultTotalDamageUI.text = result.endgameTotalDamage.ToString();
     }
     
     void Start()
     {
-        
+        GameObject resultCanvas = GameObject.Find("resultCanvas");
+        var componentResultCanvas = resultCanvas.GetComponent<Canvas>();
+        componentResultCanvas.enabled = false;
     }
 
     void Update()
