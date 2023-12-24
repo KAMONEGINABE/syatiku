@@ -6,32 +6,36 @@ public class gameRuleManager : MonoBehaviour
 {
     public static class timeLimit
     {
-        [SerializeField]static float timeLimitSecond; 
+        static float timeLimitSecond; 
         static float currentTimeSecond;
-        static float currentTimeFlame;
-        public static void setupCurrentTime()
+        public static void setupTimeLimit(float newTimeLimitSecond)
         {
+            timeLimitSecond = newTimeLimitSecond;
             currentTimeSecond = 0;
-            currentTimeFlame = 0;
-            updateInterval_currentTimeSecond = 1000;//ミリ秒で指定
+            
         }
         public static void updateCurrentTime()
         {
-            currentTimeFlame += Time.deltaTime;
-            currentTimeSecond = currentTimeFlame/60;
+            currentTimeSecond += Time.deltaTime;
         }
         public static void checkTimeLimit()
         {
-            if(currentTimeFlame == timeLimitSecond)
+            if(currentTimeSecond >= timeLimitSecond)
             {
-                print("ゲーム終了！")
+                var keyInputManager = GameObject.FindObjectOfType<keyInputManager>();
+                keyInputManager.enabled = false;
+                print("ゲーム終了！");
+
+                var gameRuleManager = GameObject.FindObjectOfType<gameRuleManager>();
+                gameRuleManager.enabled = false;
             }
         }
     }
+    [SerializeField]private float timeLimitSecond;
 
     void Start()
     {
-        timeLimit.setupCurrentTime();
+        timeLimit.setupTimeLimit(timeLimitSecond);
     }
 
     void Update()
