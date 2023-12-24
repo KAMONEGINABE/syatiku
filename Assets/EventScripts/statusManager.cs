@@ -41,6 +41,7 @@ public class statusManager : MonoBehaviour
         public bool status_decreaceHitPoint(int damagePoint)
         {
             hitPoint -= damagePoint;
+            resultStatusInstance.addTotalDamage(damagePoint);
             if (ID != 0 && hitPoint <= 0)
             {
                 resetStatus(strength);
@@ -173,6 +174,10 @@ public class statusManager : MonoBehaviour
             addPreventEscapeNumber();
             currentScore += rewardScore;
             print("score is now " + currentScore + " points !");
+        }
+        public void addTotalDamage(int damage)
+        {
+            currentTotalDamage += damage;
         }
         public class endgameResultStatus
         {
