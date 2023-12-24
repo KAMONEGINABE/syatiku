@@ -32,7 +32,7 @@ public class statusManager : MonoBehaviour
             hitPoint = (int)strength;
             isEscapeSucceeded = false;
         }
-        public void resetStatus(newStrength)
+        public void resetStatus(float newStrength)
         {
             strength = newStrength;
             rewardScore = strength;
@@ -43,7 +43,7 @@ public class statusManager : MonoBehaviour
             hitPoint -= damagePoint;
             if (ID != 0 && hitPoint <= 0)
             {
-                resetStatus(newStrength);
+                resetStatus(strength);
                 return true;
             }
             else { return false; }
@@ -98,6 +98,7 @@ public class statusManager : MonoBehaviour
             float cooltimeSecond;
             public int damage{ get; }
             float advancedParameters;
+            int totalDamageGenerated;
             public keyAttack(int newRemainingShots, float newCooltimeSecond, int newDamage, float newAdvancedParameters)
             {
                 isComboAvailable = true;
@@ -106,14 +107,16 @@ public class statusManager : MonoBehaviour
                 cooltimeSecond = newCooltimeSecond * 60 * Time.deltaTime;
                 damage = newDamage;
                 advancedParameters = newAdvancedParameters;
+                totalDamageGenerated = 0;
             }
-            public keyAttack(int newRemainingShots, int newCooltimeSecond, int newDamage)
+            public keyAttack(int newRemainingShots, float newCooltimeSecond, int newDamage)
             {
                 isComboAvailable = true;
                 remainingShots = newRemainingShots;
                 alreadyUsedShot = 0;
                 cooltimeSecond = newCooltimeSecond * 60;
                 damage = newDamage;
+                totalDamageGenerated = 0;
             }
             public void consumeRemainingShots()
             {
@@ -136,10 +139,10 @@ public class statusManager : MonoBehaviour
         {
             keyAttackList = new Dictionary<string, keyAttack>()
             {
-                {"通常攻撃",new keyAttack(1,0,1,0)},
-                {"横一列",new keyAttack(5,10,5)},
-                {"四角",new keyAttack(3,15,20)},
-                {"縦壁",new keyAttack(1,15,0,10)}
+                {"通常攻撃",new keyAttack(1,0.2f,1,0)},
+                {"横一列",new keyAttack(5,10f,5)},
+                {"四角",new keyAttack(3,15f,20)},
+                {"縦壁",new keyAttack(1,15f,0,10)}
             };
         }
     }
@@ -151,15 +154,17 @@ public class statusManager : MonoBehaviour
     public class resultStatus
     {
         public float currentScore;
-        private float currentEmployeeNumber;
+        private int currentEmployeeNumber;
         private int currentPreventEscapeNumber;//こっちが脱走阻止回数
         private int currentSucceedEscapeNumber;//こっちが脱走成功回数
+        private int currentTotalDamage;
         public resultStatus()
         {
             currentScore = 0;
             currentEmployeeNumber = 4;
             currentPreventEscapeNumber = 0;
             currentSucceedEscapeNumber = 0;
+            currentTotalDamage = 0;
         }
         public void addPreventEscapeNumber(){currentPreventEscapeNumber++;}
         public void addSucceedEscapeNumber(){currentSucceedEscapeNumber++;}
@@ -169,10 +174,38 @@ public class statusManager : MonoBehaviour
             currentScore += rewardScore;
             print("score is now " + currentScore + " points !");
         }
+        public class endgameResultStatus
+        {
+            public float endgameScore{get; private set;}
+            public int endgameEmployeeNumber{get; private set;}
+            public int endgamePreventEscapeNumber{get; private set;}
+            public int endgameSucceedEscapeNumber{get; private set;}
+            public int endgameTotalDamage{get; private set;}
+            public endgameResultStatus(float a,int b,int c,int d,int e)
+            {
+                endgameScore = a;
+                endgameEmployeeNumber = b;
+                endgamePreventEscapeNumber = c;
+                endgameSucceedEscapeNumber = d;
+                endgameTotalDamage = e;
+            }
+        }
+        public endgameResultStatus createEndgameResultStatus()
+        {
+            return new endgameResultStatus
+            (
+                this.currentScore,
+                this.currentEmployeeNumber,
+                this.currentPreventEscapeNumber,
+                this.currentSucceedEscapeNumber,
+                this.currentTotalDamage
+            );
+        }
     }
     public static resultStatus resultStatusInstance = new resultStatus();
 
     //　Ⅴ.ゲーム起動時処理
+
     void Start()
     {
         setupEmployeeStatus(12);

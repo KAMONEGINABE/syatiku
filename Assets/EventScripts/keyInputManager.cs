@@ -430,7 +430,7 @@ public class keyInputManager : MonoBehaviour
         if (IsActive_Combobar1)
         {
             Vector3 temporaryPosition = Combobar1.transform.position;
-            temporaryPosition.x--;
+            temporaryPosition.x -= Time.deltaTime * 5;
             Combobar1.transform.position = temporaryPosition;
         }
         if (Combobar1.transform.position.x <= -20)///toriaezu=画面端のX座標

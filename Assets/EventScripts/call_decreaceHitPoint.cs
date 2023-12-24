@@ -10,14 +10,17 @@ public class call_decreaceHitPoint : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
+        print(other);
         scriptManager = GameObject.Find("scriptManager");
         statusManager statusManager = scriptManager.GetComponent<statusManager>();
 
-        employeeStatusTransceiver employeeStatusTransceiver = other.GetComponent<employeeStatusTransceiver>();
+        var employeeStatusTransceiver = other.GetComponent<employeeStatusTransceiver>();
         if(employeeStatusTransceiver != null)
         {
             int damage = statusManager.playerStatusInstance.keyAttackList[attackType].damage * damageMultiplier;
+            print("ダメージ量"+damage);
             employeeStatusTransceiver.hitCalculation(damage);
         }
+        else{print("null");}
     }
 }

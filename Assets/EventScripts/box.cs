@@ -5,22 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class box : MonoBehaviour
 {
-void Start() {
+    void Start() 
+    {
     Destroy(gameObject,0.02f);
-}
-
-
-        // IEnumerator ChangeColor()
-        // {
-        //     if (masako.ZBox)
-        //     {
-        //         gameObject.SetActive(true);
-
-        //     }
-
-        //     yield return new WaitForSeconds(0.1f);
-        //     gameObject.SetActive(false);
-        // }
     }
+}
 
 
