@@ -415,9 +415,9 @@ public class key_instance_test : MonoBehaviour
 
         if (IsActive_Combobar1)
         {
-            Vector3 temporaryPosition = object.transform.position;
+            Vector3 temporaryPosition = Combobar1.transform.position;
             temporaryPosition.x--;
-            object.transform.position = temporaryPosition;
+            Combobar1.transform.position = temporaryPosition;
         }
 
         if (Combobar1.transform.position.x <= -1.2)///toriaezu=画面端のX座標
