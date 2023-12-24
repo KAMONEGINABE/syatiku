@@ -381,19 +381,19 @@ public class key_instance_test : MonoBehaviour
             key_threeTimeAgoPressed.keyPosition.x = 0f;
 
 
-            if (Chokuzenhozon.z=1.45f)
+            if (Chokuzenhozon.z == 1.45f)
             {
                 IsActive_Combobar1 = true;
             }
-            if (Chokuzenhozon.z=0.36f)
+            if (Chokuzenhozon.z == 0.36f)
             {
                 IsActive_Combobar2 = true;
             }
-            if (Chokuzenhozon.z=-0.67f)
+            if (Chokuzenhozon.z == -0.67f)
             {
                 IsActive_Combobar3 = true;
             }
-            if (Chokuzenhozon.z=-1.7f)
+            if (Chokuzenhozon.z == -1.7f)
             {
                 IsActive_Combobar4 = true;
             }

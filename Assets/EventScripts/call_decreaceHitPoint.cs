@@ -13,9 +13,9 @@ public class call_decreaceHitPoint : MonoBehaviour
         statusManager statusManager = scriptManager.GetComponent<statusManager>();
 
         employeeStatusTransceiver employeeStatusTransceiver = other.GetComponent<employeeStatusTransceiver>();
-        if(employeeStatusTransceiver != null){
+        if(employeeStatusTransceiver != null)
+        {
             employeeStatusTransceiver.hitCalculation(statusManager.playerStatusInstance.keyAttackList[attackType].damage);
         }
     }
-
 }
