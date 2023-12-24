@@ -206,3 +206,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: "\u901A\u5E38\u653B\u6483"
+  damageMultiplier: 1

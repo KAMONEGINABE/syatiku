@@ -24,6 +24,7 @@ public class gameRuleManager : MonoBehaviour
             {
                 var keyInputManager = GameObject.FindObjectOfType<keyInputManager>();
                 keyInputManager.enabled = false;
+                
                 print("ゲーム終了！");
 
                 var gameRuleManager = GameObject.FindObjectOfType<gameRuleManager>();

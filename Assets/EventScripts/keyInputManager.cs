@@ -175,6 +175,7 @@ public class keyInputManager : MonoBehaviour
         KeyDataList.Add(new KeyData(",", KeyCode.Comma, new Vector3(2.4f, 0.5f, -1.7f)));
         KeyDataList.Add(new KeyData(".", KeyCode.Period, new Vector3(3.7f, 0.5f, -1.7f)));
         KeyDataList.Add(new KeyData("/", KeyCode.Slash, new Vector3(5f, 0.5f, -1.7f)));
+        KeyDataList.Add(new KeyData("Neutral", KeyCode.None, new Vector3(9999f, 9999f, 9999f)));
 
         setupKeyMemory();
     }
@@ -372,41 +373,54 @@ public class keyInputManager : MonoBehaviour
         {
             Update_KeyMemory();
 
+            print(key_oneTimeAgoPressed.keyPosition);
+
             Instantiate(hitTrigger, key_oneTimeAgoPressed.keyPosition, Quaternion.identity);
 
             value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
             absoluteValue_1 = Mathf.Abs(value_1);
             value_2 = key_twoTimeAgoPressed.keyPosition.x - key_threeTimeAgoPressed.keyPosition.x;
             absoluteValue_2 = Mathf.Abs(value_2);
+            print(value_1);
+            print(value_2);
+
+            if (value_1 <= -1.25 && value_1 >= -1.3 && value_2 <= -1.25 && value_2 >= -1.33)///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
+            {
+
+                if (key_oneTimeAgoPressed.keyPosition.z == 1.45f)
+                {
+                    IsActive_Combobar1 = true;
+                }
+                if (key_oneTimeAgoPressed.keyPosition.z == 0.36f)
+                {
+                    IsActive_Combobar2 = true;
+                }
+                if (key_oneTimeAgoPressed.keyPosition.z == -0.67f)
+                {
+                    IsActive_Combobar3 = true;
+                }
+                if (key_oneTimeAgoPressed.keyPosition.z == -1.7f)
+                {
+                    IsActive_Combobar4 = true;
+                }
+
+                key_justNowPressed = KeyDataList.Find(key => key.anyKeyCode == KeyCode.None);
+                Update_KeyMemory();
+                Update_KeyMemory();
+                Update_KeyMemory();
+
+                value_1 = key_oneTimeAgoPressed.keyPosition.x - key_twoTimeAgoPressed.keyPosition.x;
+                absoluteValue_1 = Mathf.Abs(value_1);
+                value_2 = key_twoTimeAgoPressed.keyPosition.x - key_threeTimeAgoPressed.keyPosition.x;
+                absoluteValue_2 = Mathf.Abs(value_2);
+
+                print("コンボ発生！");//デバック用
+
+            }
+
         }
 
-        if (value_1 == -1.3 && value_2 == -1.3)///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
-        {
-            
-            if (key_oneTimeAgoPressed.keyPosition.z == 1.45f)
-            {
-                IsActive_Combobar1 = true;
-            }
-            if (key_oneTimeAgoPressed.keyPosition.z == 0.36f)
-            {
-                IsActive_Combobar2 = true;
-            }
-            if (key_oneTimeAgoPressed.keyPosition.z == -0.67f)
-            {
-                IsActive_Combobar3 = true;
-            }
-            if (key_oneTimeAgoPressed.keyPosition.z == -1.7f)
-            {
-                IsActive_Combobar4 = true;
-            }
 
-            key_oneTimeAgoPressed.keyPosition = new Vector3(0f,0f,0f);
-            key_twoTimeAgoPressed.keyPosition = new Vector3(0f,0f,0f);
-            key_threeTimeAgoPressed.keyPosition = new Vector3(0f,0f,0f); 
-
-            print("コンボ発生！");//デバック用
-
-        }
 
         GameObject Combobar1 = GameObject.Find("Combobar1");
         GameObject Combobar2 = GameObject.Find("Combobar2");
@@ -419,7 +433,7 @@ public class keyInputManager : MonoBehaviour
             temporaryPosition.x--;
             Combobar1.transform.position = temporaryPosition;
         }
-        if (Combobar1.transform.position.x <= -1.2)///toriaezu=画面端のX座標
+        if (Combobar1.transform.position.x <= -20)///toriaezu=画面端のX座標
         {
             IsActive_Combobar1 = false;
         }

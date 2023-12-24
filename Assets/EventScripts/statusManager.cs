@@ -3,7 +3,8 @@
     Ⅰ.外部処理インポート
     Ⅱ.社員ステータス関連
     Ⅲ.プレイヤーステータス関連
-    Ⅳ.起動時セットアップ
+    Ⅳ.リザルトステータス関連
+    Ⅴ.起動時セットアップ
 */
 
 // Ⅰ.外部処理インポート
@@ -21,6 +22,7 @@ public class statusManager : MonoBehaviour
         float strength;
         float rewardScore;
         int hitPoint;
+        bool isEscapeSucceeded;
 
         public employeeStatus(int newID, float newStrength)
         {
@@ -28,8 +30,9 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
+            isEscapeSucceeded = false;
         }
-        public void status_setAgain(float newStrength)
+        public void resetStatus(newStrength)
         {
             strength = newStrength;
             rewardScore = strength;
@@ -40,7 +43,7 @@ public class statusManager : MonoBehaviour
             hitPoint -= damagePoint;
             if (ID != 0 && hitPoint <= 0)
             {
-                status_setAgain(strength);
+                resetStatus(newStrength);
                 return true;
             }
             else { return false; }
@@ -56,16 +59,21 @@ public class statusManager : MonoBehaviour
             print(rewardScore);
             print(hitPoint);
         }
+        public void escapeSucceed()
+        {
+            isEscapeSucceeded = true;
+            resultStatusInstance.addSucceedEscapeNumber();
+        }
     }
 
-    public employeeStatus[] StatusDataList;
+    public employeeStatus[] employeeStatusDataList;
     public void setupEmployeeStatus(int a)///aは登場する全社員の人数
     {
-        StatusDataList = new employeeStatus[a + 1];///0番目は空データにしたので1つ多め。
+        employeeStatusDataList = new employeeStatus[a + 1];///0番目は空データにしたので1つ多め。
 
         for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
         {
-            StatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 100f);
+            employeeStatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 100f);
         }
 
     }
@@ -74,7 +82,7 @@ public class statusManager : MonoBehaviour
         for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
         {
             print(employeeNumber);
-            StatusDataList[employeeNumber].forDebug_showAllStatus();
+            employeeStatusDataList[employeeNumber].forDebug_showAllStatus();
         }
     }
 
@@ -82,7 +90,6 @@ public class statusManager : MonoBehaviour
 
     public class playerStatus
     {
-        public float currentScore;
         public class keyAttack
         {
             public bool isComboAvailable{ get; private set;}
@@ -123,10 +130,6 @@ public class statusManager : MonoBehaviour
                 isComboAvailable = true;
             }
         }
-        public playerStatus()
-        {
-            currentScore = 0;
-        }
 
         public Dictionary<string, keyAttack> keyAttackList;
         public void setupKeyAttack()
@@ -140,10 +143,36 @@ public class statusManager : MonoBehaviour
             };
         }
     }
+    
+    public static playerStatus playerStatusInstance;
 
-    public playerStatus playerStatusInstance;
+    //　Ⅳ.リザルトステータス関連
 
-    //　Ⅳ.ゲーム起動時処理
+    public class resultStatus
+    {
+        public float currentScore;
+        private float currentEmployeeNumber;
+        private int currentPreventEscapeNumber;//こっちが脱走阻止回数
+        private int currentSucceedEscapeNumber;//こっちが脱走成功回数
+        public resultStatus()
+        {
+            currentScore = 0;
+            currentEmployeeNumber = 4;
+            currentPreventEscapeNumber = 0;
+            currentSucceedEscapeNumber = 0;
+        }
+        public void addPreventEscapeNumber(){currentPreventEscapeNumber++;}
+        public void addSucceedEscapeNumber(){currentSucceedEscapeNumber++;}
+        public void justNowDestroyed(float rewardScore)
+        {
+            addPreventEscapeNumber();
+            currentScore += rewardScore;
+            print("score is now " + currentScore + " points !");
+        }
+    }
+    public static resultStatus resultStatusInstance = new resultStatus();
+
+    //　Ⅴ.ゲーム起動時処理
     void Start()
     {
         setupEmployeeStatus(12);
