@@ -19,20 +19,20 @@ public class statusManager : MonoBehaviour
     {
         int ID;
         float strength;
-        float scoreIncreace;
+        float rewardScore;
         int hitPoint;
 
         public employeeStatus(int newID, float newStrength)
         {
             ID = newID;
             strength = newStrength;
-            scoreIncreace = strength;
+            rewardScore = strength;
             hitPoint = (int)strength;
         }
         public void status_setAgain(float newStrength)
         {
             strength = newStrength;
-            scoreIncreace = strength;
+            rewardScore = strength;
             hitPoint = (int)strength;
         }
         public bool status_decreaceHitPoint(int damagePoint)
@@ -45,11 +45,15 @@ public class statusManager : MonoBehaviour
             }
             else { return false; }
         }
+        public float scoreIncreace()
+        {
+            return rewardScore;
+        }
         public void forDebug_showAllStatus()
         {
             print(ID);
             print(strength);
-            print(scoreIncreace);
+            print(rewardScore);
             print(hitPoint);
         }
     }
@@ -78,6 +82,7 @@ public class statusManager : MonoBehaviour
 
     public class playerStatus
     {
+        public float currentScore;
         public class keyAttack
         {
             public bool isComboAvailable{ get; private set;}
@@ -117,6 +122,10 @@ public class statusManager : MonoBehaviour
                 yield return new WaitForSeconds(cooltimeSecond);
                 isComboAvailable = true;
             }
+        }
+        public playerStatus()
+        {
+            currentScore = 0;
         }
 
         public Dictionary<string, keyAttack> keyAttackList;

@@ -16,5 +16,9 @@ public class employeeStatusTransceiver : MonoBehaviour
         
         justNowHit = true;
         destroyed = statusManager.StatusDataList[employeeNumber].status_decreaceHitPoint(damage);
+        if(destroyed)
+        {
+            statusManager.playerStatusInstance.currentScore += statusManager.StatusDataList[employeeNumber].scoreIncreace();
+        }
     }
 }
