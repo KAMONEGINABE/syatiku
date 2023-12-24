@@ -19,6 +19,7 @@ public class employeeStatusTransceiver : MonoBehaviour
         if(destroyed)
         {
             statusManager.playerStatusInstance.currentScore += statusManager.StatusDataList[employeeNumber].scoreIncreace();
+            print(statusManager.playerStatusInstance.currentScore);
         }
     }
 }
