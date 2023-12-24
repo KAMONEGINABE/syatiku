@@ -6,6 +6,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreUI;
+    [SerializeField] TextMeshProUGUI timeUI;
     [SerializeField] TextMeshProUGUI resultScoreUI;
     [SerializeField] TextMeshProUGUI resultEmployeeNumberUI;
     [SerializeField] TextMeshProUGUI resultPreventEscapeUI;
@@ -41,6 +42,10 @@ public class UIManager : MonoBehaviour
     
     void Start()
     {
+        GameObject inGameCanvas = GameObject.Find("inGameCanvas");
+        var componentInGameCanvas = inGameCanvas.GetComponent<Canvas>();
+        componentInGameCanvas.enabled = true;
+
         GameObject resultCanvas = GameObject.Find("resultCanvas");
         var componentResultCanvas = resultCanvas.GetComponent<Canvas>();
         componentResultCanvas.enabled = false;
@@ -50,5 +55,7 @@ public class UIManager : MonoBehaviour
     {
         var statusManager = GameObject.FindObjectOfType<statusManager>();
         scoreUI.text = statusManager.resultStatusInstance.currentScore.ToString();
+        var gameRuleManager = GameObject.FindObjectOfType<gameRuleManager>();
+        timeUI.text = gameRuleManager.timeLimit.remainingTime.ToString();
     }
 }

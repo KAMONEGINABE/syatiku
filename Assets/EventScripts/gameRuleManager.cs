@@ -9,15 +9,18 @@ public class gameRuleManager : MonoBehaviour
     {
         static float timeLimitSecond; 
         static float currentTimeSecond;
+        public static float remainingTime{get; private set;} 
         public static void setupTimeLimit(float newTimeLimitSecond)
         {
             timeLimitSecond = newTimeLimitSecond;
             currentTimeSecond = 0;
-            
+            remainingTime = 0;
         }
         public static void updateCurrentTime()
         {
             currentTimeSecond += Time.deltaTime;
+            remainingTime = timeLimitSecond - currentTimeSecond;
+            remainingTime = Mathf.Ceil(remainingTime);
         }
         public static bool isTimeLimitReached()
         {
