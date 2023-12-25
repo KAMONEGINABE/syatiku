@@ -435,7 +435,49 @@ public class keyInputManager : MonoBehaviour
         }
         if (Combobar1.transform.position.x <= -20)///toriaezu=画面端のX座標
         {
+            Vector3 temporaryPosition = Combobar1.transform.position;
+            temporaryPosition.x = 14;
+            Combobar1.transform.position = temporaryPosition;
             IsActive_Combobar1 = false;
+        }
+        if (IsActive_Combobar2)
+        {
+            Vector3 temporaryPosition = Combobar2.transform.position;
+            temporaryPosition.x -= Time.deltaTime * 5;
+            Combobar2.transform.position = temporaryPosition;
+        }
+        if (Combobar2.transform.position.x <= -20)///toriaezu=画面端のX座標
+        {
+            Vector3 temporaryPosition = Combobar2.transform.position;
+            temporaryPosition.x = 14;
+            Combobar2.transform.position = temporaryPosition;
+            IsActive_Combobar2 = false;
+        }
+        if (IsActive_Combobar3)
+        {
+            Vector3 temporaryPosition = Combobar3.transform.position;
+            temporaryPosition.x -= Time.deltaTime * 5;
+            Combobar3.transform.position = temporaryPosition;
+        }
+        if (Combobar3.transform.position.x <= -20)///toriaezu=画面端のX座標
+        {
+            Vector3 temporaryPosition = Combobar3.transform.position;
+            temporaryPosition.x = 14;
+            Combobar3.transform.position = temporaryPosition;
+            IsActive_Combobar3 = false;
+        }
+        if (IsActive_Combobar4)
+        {
+            Vector3 temporaryPosition = Combobar4.transform.position;
+            temporaryPosition.x -= Time.deltaTime * 5;
+            Combobar4.transform.position = temporaryPosition;
+        }
+        if (Combobar4.transform.position.x <= -20)///toriaezu=画面端のX座標
+        {
+            Vector3 temporaryPosition = Combobar4.transform.position;
+            temporaryPosition.x = 14;
+            Combobar4.transform.position = temporaryPosition;
+            IsActive_Combobar4 = false;
         }
     }
 }
