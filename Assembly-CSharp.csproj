@@ -52,6 +52,8 @@
      <Compile Include="Assets\EventScripts\employeeStatusTransceiver.cs" />
      <Compile Include="Assets\EventScripts\CountdownTrigger.cs" />
      <Compile Include="Assets\EventScripts\ComboBox.cs" />
+     <Compile Include="Assets\EventScripts\callhalftrigger1.cs" />
+     <Compile Include="Assets\EventScripts\callhalftrigger3.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\EventScripts\gameRuleManager.cs" />
      <Compile Include="Assets\EventScripts\ActionBase.cs" />
@@ -59,8 +61,11 @@
      <Compile Include="Assets\EventScripts\AnimMessage.cs" />
      <Compile Include="Assets\EventScripts\keyInputManager.cs" />
      <Compile Include="Assets\EventScripts\TimerTrigger.cs" />
+     <Compile Include="Assets\EventScripts\callhalftrigger4.cs" />
      <Compile Include="Assets\EventScripts\PlayAudio.cs" />
      <Compile Include="Assets\EventScripts\InputTrigger.cs" />
+     <Compile Include="Assets\EventScripts\title.cs" />
+     <Compile Include="Assets\EventScripts\callhalftrigger2.cs" />
      <Compile Include="Assets\EventScripts\statusManager.cs" />
      <Compile Include="Assets\EventScripts\LogDisplay.cs" />
      <Compile Include="Assets\EventScripts\call_decreaceHitPoint.cs" />

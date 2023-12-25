@@ -384,6 +384,9 @@ public class keyInputManager : MonoBehaviour
             print(value_1);
             print(value_2);
 
+
+            
+
             if (value_1 <= -1.25 && value_1 >= -1.3 && value_2 <= -1.25 && value_2 >= -1.33)///コンボ判定。元のif文中身：(key_oneTimeAgoPressed.keyPosition.x == key_twoTimeAgoPressed.keyPosition.x == key_threeTimeAgoPressed.keyPosition.x > 0 && absoluteValue_1 < 1.5 && absoluteValue_2 < 1.5)
             {
 
@@ -479,5 +482,7 @@ public class keyInputManager : MonoBehaviour
             Combobar4.transform.position = temporaryPosition;
             IsActive_Combobar4 = false;
         }
+
+        
     }
 }
