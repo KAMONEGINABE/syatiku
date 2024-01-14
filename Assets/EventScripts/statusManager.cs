@@ -28,7 +28,8 @@ public class statusManager : MonoBehaviour
         float baseMentalDamage;
         bool isEscaping;
         bool isEscapeSucceeded;
-        public employeeStatus(int newID, float newStrength)
+        public int textureType;
+        public employeeStatus(int newID, float newStrength, int newTextureType)
         {
             ID = newID;
             strength = newStrength;
@@ -36,9 +37,10 @@ public class statusManager : MonoBehaviour
             hitPoint = (int)strength;
             speed = strength / 10f;
             remainMental = strength;
-            baseMentalDamage = Random.Range(1f,3f)*5;
+            baseMentalDamage = Random.Range(0.5f,10f);
             isEscaping = false;
             isEscapeSucceeded = false;
+            textureType = newTextureType;
         }
         public void resetStatus(float newStrength)
         {
@@ -105,7 +107,7 @@ public class statusManager : MonoBehaviour
 
         for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
         {
-            employeeStatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 20f);
+            employeeStatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 20f, Random.Range(1,5));
         }
 
     }

@@ -13,6 +13,9 @@ public class escapeRouteRunner : MonoBehaviour
     int timesReachTargetPosition;
     bool alreadyCorrected;///employeeNumber5と8の社員だけ、中継地点0を無視して進行する必要があるため、そのチェック用。
     Vector3 targetPosition = new Vector3(0f, 0f, 0f);
+    int direction;
+    Animator animator;
+    Vector3 firstPosition = new Vector3(0f, 0f, 0f);
     private int roomNumber(int employeeNumber)///左上なら1,右上なら2,左下なら3,右下なら4
     {
         if(employeeNumber<=2){return 1;}
@@ -28,6 +31,9 @@ public class escapeRouteRunner : MonoBehaviour
         statusManager = scriptManager.GetComponent<statusManager>();
         employeeStatusTransceiver = this.gameObject.GetComponent<employeeStatusTransceiver>();
         timesReachTargetPosition = 0;
+        animator = GetComponent<Animator>();
+
+        firstPosition = this.gameObject.transform.position;
     }
     void Update()
     {
@@ -48,47 +54,53 @@ public class escapeRouteRunner : MonoBehaviour
 
             Vector3 targetDistance = this.gameObject.transform.position - targetPosition;
 
-            if (Mathf.Abs(targetDistance.x) <= 0.03 && Mathf.Abs(targetDistance.z) <= 0.03)
+            if (Mathf.Abs(targetDistance.x) <= 0.05 && Mathf.Abs(targetDistance.z) <= 0.05)
             {
-                timesReachTargetPosition++;
-                print("timesReachTargetPosition:"+timesReachTargetPosition);
+                if(timesReachTargetPosition != 2)
+                {
+                    timesReachTargetPosition++;
+                }
                 targetPosition = escapeRouteManager.targetPositionProvider(roomNumber(employeeStatusTransceiver.EmployeeNumber), timesReachTargetPosition);
                 print("更新　"+targetPosition);
             }
             else
             {
                 if
-                (Mathf.Abs(targetDistance.x) >= 0.03 && Mathf.Abs(targetDistance.z) >= 0.03)
+                (Mathf.Abs(targetDistance.x) >= 0.05 && Mathf.Abs(targetDistance.z) >= 0.05)
                 {
                     calculatedSpeed = baseSpeed / 2.0f; ///斜め移動をする際はx,zの両方にspeedを+＝するので、片側の移動速度を半分に
                     print("斜め移動中　"+calculatedSpeed);
                 }
                 else { calculatedSpeed = baseSpeed; }
 
-                if (this.gameObject.transform.position.x < targetPosition.x)///xを加減算するのはココ
+                if (this.gameObject.transform.position.x-targetPosition.x <= -0.05)///xを加減算するのはココ
                 {
                     Vector3 calculatedPosition = this.gameObject.transform.position;
                     calculatedPosition.x += calculatedSpeed * Time.deltaTime;
                     this.gameObject.transform.position = calculatedPosition;
+                    direction = 4;
                 }
-                else if (this.gameObject.transform.position.x > targetPosition.x)
+                else if (this.gameObject.transform.position.x-targetPosition.x >= 0.05)
                 {
                     Vector3 calculatedPosition = this.gameObject.transform.position;
                     calculatedPosition.x -= calculatedSpeed * Time.deltaTime;
                     this.gameObject.transform.position = calculatedPosition;
+                    direction = 3;
                 }
 
-                if (this.gameObject.transform.position.z < targetPosition.z)///zを加減算するのはココ
+                if (this.gameObject.transform.position.z-targetPosition.z <= -0.05)///zを加減算するのはココ
                 {
                     Vector3 calculatedPosition = this.gameObject.transform.position;
                     calculatedPosition.z += calculatedSpeed * Time.deltaTime;
                     this.gameObject.transform.position = calculatedPosition;
+                    direction = 2;
                 }
-                else if (this.gameObject.transform.position.z > targetPosition.z)
+                else if (this.gameObject.transform.position.z-targetPosition.z >= 0.05)
                 {
                     Vector3 calculatedPosition = this.gameObject.transform.position;
                     calculatedPosition.z -= calculatedSpeed * Time.deltaTime;
                     this.gameObject.transform.position = calculatedPosition;
+                    direction = 1;
                 }
             }
 
@@ -97,7 +109,12 @@ public class escapeRouteRunner : MonoBehaviour
                 Vector3 calculatedPosition = this.gameObject.transform.position;
                 calculatedPosition.x += calculatedSpeed * Time.deltaTime * 2;///(上でついてる-x方向の進行を相殺するために*2をつけてる)
                 this.gameObject.transform.position = calculatedPosition;
+                direction = 4;
             }
+
+            print(direction);
+            animator.SetInteger("direction",direction);
+            
         }
     }
 }

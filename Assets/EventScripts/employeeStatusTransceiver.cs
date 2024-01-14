@@ -13,6 +13,8 @@ public class employeeStatusTransceiver : MonoBehaviour
     bool lastEscapingState = false;
     GameObject scriptManager;
     statusManager statusManager;
+    int textureType;
+    Animator animator;
     
     public void hitCalculation(int damage)
     {
@@ -33,6 +35,7 @@ public class employeeStatusTransceiver : MonoBehaviour
         EmployeeNumber = employeeNumber;
         scriptManager = GameObject.Find("scriptManager");
         statusManager = scriptManager.GetComponent<statusManager>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -40,7 +43,7 @@ public class employeeStatusTransceiver : MonoBehaviour
         if(statusManager.employeeStatusDataList[employeeNumber].checkEscaping() != lastEscapingState)
         {
             lastEscapingState = statusManager.employeeStatusDataList[employeeNumber].checkEscaping();
-            CustomEvent.Trigger(this.gameObject,"setRendererEnable",lastEscapingState);
+            CustomEvent.Trigger(this.gameObject,"setEmployeeRenderer",lastEscapingState);
         }
         
         if(this.gameObject.transform.position.x >= 7)
@@ -48,5 +51,8 @@ public class employeeStatusTransceiver : MonoBehaviour
             statusManager.employeeStatusDataList[employeeNumber].escapeSucceed();
             this.enabled = false;
         }
+
+        textureType = statusManager.employeeStatusDataList[employeeNumber].textureType;
+        animator.SetInteger("textureType",textureType);
     }
 }

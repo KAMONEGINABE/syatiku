@@ -141,6 +141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_3
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -210,6 +215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: employee ID_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -414,6 +424,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_6
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -484,6 +499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: employee ID_6
       objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -512,6 +532,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desk ID_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
@@ -582,6 +607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: employee ID_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1136,6 +1166,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_9
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -1200,6 +1235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: employee ID_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1999,6 +2039,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_2
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -2068,6 +2113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: employee ID_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2786,6 +2836,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_5
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -2851,6 +2906,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: employee ID_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2879,6 +2939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desk ID_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
@@ -2949,6 +3014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: employee ID_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3731,6 +3801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_10
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -3824,6 +3899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: desk ID_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
       propertyPath: m_RootOrder
@@ -3894,6 +3974,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: employee ID_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3922,6 +4007,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: desk ID_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316373172300365577, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5712249522648877558, guid: f1890a384b27afc41ae540e7230a4455,
         type: 3}
@@ -3987,6 +4077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: employee ID_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383234682790111408, guid: f1890a384b27afc41ae540e7230a4455,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
