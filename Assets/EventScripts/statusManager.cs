@@ -35,7 +35,7 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
-            speed = strength / 10f;
+            speed = strength / 20f;
             remainMental = strength;
             baseMentalDamage = Random.Range(0.5f,10f);
             isEscaping = false;
@@ -47,21 +47,24 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
-            speed = strength / 100f;
+            speed = strength / 20f;
             remainMental = strength;
-            baseMentalDamage = Random.Range(0.5f,3f)*5;
+            baseMentalDamage = Random.Range(0.5f,10f);
             isEscaping = false;
         }
         public bool status_decreaceHitPoint(int damagePoint)
         {
-            hitPoint -= damagePoint;
-            resultStatusInstance.addTotalDamage(damagePoint);
-            if (ID != 0 && hitPoint <= 0)
+            if(!isEscapeSucceeded)
             {
-                resetStatus(strength);
-                return true;
+                hitPoint -= damagePoint;
+                resultStatusInstance.addTotalDamage(damagePoint);
+                if (ID != 0 && hitPoint <= 0)
+                {
+                    return true;
+                }
+                else { return false; }
             }
-            else { return false; }
+            else{ return false; }
         }
         public float scoreIncreace()
         {
@@ -99,7 +102,6 @@ public class statusManager : MonoBehaviour
             resultStatusInstance.addSucceedEscapeNumber();
         }
     }
-
     public employeeStatus[] employeeStatusDataList;
     public void setupEmployeeStatus(int a)///aは登場する全社員の人数
     {
@@ -253,7 +255,6 @@ public class statusManager : MonoBehaviour
     public static resultStatus resultStatusInstance = new resultStatus();
 
     //　Ⅴ.Start処理
-
     public int employeeStatusAmount = 12;
     void Start()
     {

@@ -193,6 +193,8 @@ GameObject:
   - component: {fileID: 2209011070051687044}
   - component: {fileID: 4561815981137110299}
   - component: {fileID: 4989451923855695665}
+  - component: {fileID: 5851689504086312371}
+  - component: {fileID: 3952338743685329601}
   m_Layer: 0
   m_Name: employee ID_x
   m_TagString: Player
@@ -371,3 +373,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5851689504086312371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383234682790111408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 665941986d43e9c4383037b8e8840d18, type: 2}
+--- !u!114 &3952338743685329601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383234682790111408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffaedec46d40074ca263e6f45303ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

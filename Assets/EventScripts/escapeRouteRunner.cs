@@ -24,6 +24,10 @@ public class escapeRouteRunner : MonoBehaviour
         else if(employeeNumber<=10){return 4;}
         else{return 0;}
     }
+    public void returnDesk()
+    {
+        timesReachTargetPosition = 4;
+    }
     void Start()
     {
         scriptManager = GameObject.Find("scriptManager");
@@ -39,8 +43,14 @@ public class escapeRouteRunner : MonoBehaviour
     {
         if (statusManager.employeeStatusDataList[employeeStatusTransceiver.EmployeeNumber].checkEscaping())
         {
-
-            targetPosition = escapeRouteManager.targetPositionProvider(roomNumber(employeeStatusTransceiver.EmployeeNumber), timesReachTargetPosition);
+            if(timesReachTargetPosition <= 3)
+            {
+                targetPosition = escapeRouteManager.targetPositionProvider(roomNumber(employeeStatusTransceiver.EmployeeNumber), timesReachTargetPosition);
+            }
+            else
+            {
+                targetPosition = firstPosition;
+            }
             baseSpeed = statusManager.employeeStatusDataList[employeeStatusTransceiver.EmployeeNumber].speed;
 
             if(employeeStatusTransceiver.EmployeeNumber == 5  && timesReachTargetPosition == 0)
@@ -56,11 +66,19 @@ public class escapeRouteRunner : MonoBehaviour
 
             if (Mathf.Abs(targetDistance.x) <= 0.05 && Mathf.Abs(targetDistance.z) <= 0.05)
             {
-                if(timesReachTargetPosition != 2)
+                if(timesReachTargetPosition < 2)
                 {
                     timesReachTargetPosition++;
                 }
-                targetPosition = escapeRouteManager.targetPositionProvider(roomNumber(employeeStatusTransceiver.EmployeeNumber), timesReachTargetPosition);
+                else
+                {
+                    statusManager.employeeStatusDataList[employeeStatusTransceiver.EmployeeNumber].resetStatus(20);
+                    timesReachTargetPosition = 0;///リセット
+                }
+                if(timesReachTargetPosition <= 2)
+                {
+                    targetPosition = escapeRouteManager.targetPositionProvider(roomNumber(employeeStatusTransceiver.EmployeeNumber), timesReachTargetPosition);
+                }
                 print("更新　"+targetPosition);
             }
             else
@@ -111,6 +129,10 @@ public class escapeRouteRunner : MonoBehaviour
                 this.gameObject.transform.position = calculatedPosition;
                 direction = 4;
             }
+
+            Vector3 calculatedPosition1 = this.gameObject.transform.position;
+            calculatedPosition1.y = firstPosition.y - (calculatedPosition1.z / 100);
+            this.gameObject.transform.position = calculatedPosition1;
 
             print(direction);
             animator.SetInteger("direction",direction);

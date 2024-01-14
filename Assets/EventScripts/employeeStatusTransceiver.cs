@@ -13,20 +13,21 @@ public class employeeStatusTransceiver : MonoBehaviour
     bool lastEscapingState = false;
     GameObject scriptManager;
     statusManager statusManager;
+    escapeRouteRunner escapeRouteRunner;
     int textureType;
     Animator animator;
     
     public void hitCalculation(int damage)
     {
         scriptManager = GameObject.Find("scriptManager");
-        statusManager statusManager = scriptManager.GetComponent<statusManager>();
+        statusManager = scriptManager.GetComponent<statusManager>();
         
         justNowHit = true;
-        destroyed = statusManager.employeeStatusDataList[employeeNumber].status_decreaceHitPoint(damage);//ついでに向こうで勝手に撃破を検知して、適切なステータス処理をしてくれる
+        destroyed = statusManager.employeeStatusDataList[employeeNumber].status_decreaceHitPoint(damage);
         if(destroyed)
         {
             statusManager.resultStatusInstance.justNowDestroyed(statusManager.employeeStatusDataList[employeeNumber].scoreIncreace());
-            //デバッグ用：Destroy(gameObject,0.02f);
+            escapeRouteRunner.returnDesk();
         }
     }
 
@@ -36,6 +37,7 @@ public class employeeStatusTransceiver : MonoBehaviour
         scriptManager = GameObject.Find("scriptManager");
         statusManager = scriptManager.GetComponent<statusManager>();
         animator = GetComponent<Animator>();
+        escapeRouteRunner = GetComponent<escapeRouteRunner>();
     }
 
     void Update()
