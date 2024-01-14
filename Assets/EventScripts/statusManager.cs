@@ -34,9 +34,9 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
-            speed = strength * 0.05f;
+            speed = strength / 10f;
             remainMental = strength;
-            baseMentalDamage = Random.Range(0.5f,3f)*5;
+            baseMentalDamage = Random.Range(1f,3f)*5;
             isEscaping = false;
             isEscapeSucceeded = false;
         }
@@ -45,7 +45,7 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
-            speed = strength * 0.05f;
+            speed = strength / 100f;
             remainMental = strength;
             baseMentalDamage = Random.Range(0.5f,3f)*5;
             isEscaping = false;
@@ -84,7 +84,6 @@ public class statusManager : MonoBehaviour
                 if(remainMental <= 0)
                 {
                     isEscaping = true;
-                    print("nowEscaped "+ID);
                 }
             }
         }
@@ -106,7 +105,7 @@ public class statusManager : MonoBehaviour
 
         for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
         {
-            employeeStatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 100f);
+            employeeStatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 20f);
         }
 
     }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class employeeStatusTransceiver : MonoBehaviour
 {
     [SerializeField]private int employeeNumber;
-    public int EmployeeNumber;
+    [HideInInspector]public int EmployeeNumber;
     public bool justNowHit;
     public bool destroyed;
     bool lastEscapingState = false;
@@ -40,7 +40,6 @@ public class employeeStatusTransceiver : MonoBehaviour
         if(statusManager.employeeStatusDataList[employeeNumber].checkEscaping() != lastEscapingState)
         {
             lastEscapingState = statusManager.employeeStatusDataList[employeeNumber].checkEscaping();
-            print("スイッチ起動");
             CustomEvent.Trigger(this.gameObject,"setRendererEnable",lastEscapingState);
         }
         
