@@ -23,6 +23,7 @@ public class statusManager : MonoBehaviour
         float strength;
         float rewardScore;
         int hitPoint;
+        public float speed;
         float remainMental;
         float baseMentalDamage;
         bool isEscaping;
@@ -33,6 +34,7 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
+            speed = strength * 0.05f;
             remainMental = strength;
             baseMentalDamage = Random.Range(0.5f,3f)*5;
             isEscaping = false;
@@ -43,6 +45,7 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
+            speed = strength * 0.05f;
             remainMental = strength;
             baseMentalDamage = Random.Range(0.5f,3f)*5;
             isEscaping = false;
@@ -250,10 +253,10 @@ public class statusManager : MonoBehaviour
 
     //　Ⅴ.Start処理
 
-    int employeeAmount = 12;
+    public int employeeStatusAmount = 12;
     void Start()
     {
-        setupEmployeeStatus(employeeAmount);
+        setupEmployeeStatus(employeeStatusAmount);
         playerStatusInstance = new playerStatus();
         playerStatusInstance.setupKeyAttack();
     }
@@ -262,6 +265,6 @@ public class statusManager : MonoBehaviour
 
     void Update()
     {
-        callAllEscape(employeeAmount);
+        callAllEscape(employeeStatusAmount);
     }
 }

@@ -7,10 +7,12 @@ using UnityEngine;
 public class employeeStatusTransceiver : MonoBehaviour
 {
     [SerializeField]private int employeeNumber;
+    public int EmployeeNumber;
     public bool justNowHit;
     public bool destroyed;
     bool lastEscapingState = false;
     GameObject scriptManager;
+    statusManager statusManager;
     
     public void hitCalculation(int damage)
     {
@@ -26,11 +28,15 @@ public class employeeStatusTransceiver : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        EmployeeNumber = employeeNumber;
+        scriptManager = GameObject.Find("scriptManager");
+        statusManager = scriptManager.GetComponent<statusManager>();
+    }
+
     void Update()
     {
-        scriptManager = GameObject.Find("scriptManager");
-        statusManager statusManager = scriptManager.GetComponent<statusManager>();
-
         if(statusManager.employeeStatusDataList[employeeNumber].checkEscaping() != lastEscapingState)
         {
             lastEscapingState = statusManager.employeeStatusDataList[employeeNumber].checkEscaping();
