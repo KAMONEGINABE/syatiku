@@ -34,7 +34,7 @@ public class statusManager : MonoBehaviour
             rewardScore = strength;
             hitPoint = (int)strength;
             remainMental = strength;
-            baseMentalDamage = Random.Range(0.4f,4f)*5;
+            baseMentalDamage = Random.Range(0.5f,3f)*5;
             isEscaping = false;
             isEscapeSucceeded = false;
         }
@@ -44,7 +44,7 @@ public class statusManager : MonoBehaviour
             rewardScore = strength;
             hitPoint = (int)strength;
             remainMental = strength;
-            baseMentalDamage = Random.Range(5f,25f);
+            baseMentalDamage = Random.Range(0.5f,3f)*5;
             isEscaping = false;
         }
         public bool status_decreaceHitPoint(int damagePoint)
