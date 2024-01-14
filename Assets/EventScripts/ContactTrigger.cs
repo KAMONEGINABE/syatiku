@@ -11,8 +11,6 @@ public class ContactTrigger : TriggerBase {
     {
         if (!other.CompareTag("Player")) return;
         action.Invoke();
-
-        
     }
     private void OnTriggerExit(Collider other)
     {

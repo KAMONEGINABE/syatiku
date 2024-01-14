@@ -4,7 +4,8 @@
     Ⅱ.社員ステータス関連
     Ⅲ.プレイヤーステータス関連
     Ⅳ.リザルトステータス関連
-    Ⅴ.起動時セットアップ
+    Ⅴ.Start処理
+    Ⅵ.Update処理
 */
 
 // Ⅰ.外部処理インポート
@@ -22,14 +23,19 @@ public class statusManager : MonoBehaviour
         float strength;
         float rewardScore;
         int hitPoint;
+        float remainMental;
+        float baseMentalDamage;
+        bool isEscaping;
         bool isEscapeSucceeded;
-
         public employeeStatus(int newID, float newStrength)
         {
             ID = newID;
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
+            remainMental = strength;
+            baseMentalDamage = Random.Range(0.4f,4f)*5;
+            isEscaping = false;
             isEscapeSucceeded = false;
         }
         public void resetStatus(float newStrength)
@@ -37,6 +43,9 @@ public class statusManager : MonoBehaviour
             strength = newStrength;
             rewardScore = strength;
             hitPoint = (int)strength;
+            remainMental = strength;
+            baseMentalDamage = Random.Range(5f,25f);
+            isEscaping = false;
         }
         public bool status_decreaceHitPoint(int damagePoint)
         {
@@ -60,6 +69,26 @@ public class statusManager : MonoBehaviour
             print(rewardScore);
             print(hitPoint);
         }
+        public void callEscape(bool isDefine,float mentalDamageMagnification)
+        {
+            if(isDefine==true)
+            {
+                isEscaping = true;
+            }
+            else
+            {
+                remainMental -= baseMentalDamage * mentalDamageMagnification * Time.deltaTime;
+                if(remainMental <= 0)
+                {
+                    isEscaping = true;
+                    print("nowEscaped "+ID);
+                }
+            }
+        }
+        public bool checkEscaping()
+        {
+            return isEscaping;
+        }
         public void escapeSucceed()
         {
             isEscapeSucceeded = true;
@@ -77,6 +106,16 @@ public class statusManager : MonoBehaviour
             employeeStatusDataList[employeeNumber] = new employeeStatus(employeeNumber, 100f);
         }
 
+    }
+    public void callAllEscape(int a)///aは登場する全社員の人数
+    {
+        for (int employeeNumber = 1; employeeNumber <= a; employeeNumber++)
+        {
+            if(employeeStatusDataList[employeeNumber].checkEscaping()==false)
+            {
+                employeeStatusDataList[employeeNumber].callEscape(false,1);
+            }
+        }
     }
     public void forDebug_showAllEmployeeStatus(int a)///aは登場する全社員の人数
     {
@@ -209,12 +248,20 @@ public class statusManager : MonoBehaviour
     }
     public static resultStatus resultStatusInstance = new resultStatus();
 
-    //　Ⅴ.ゲーム起動時処理
+    //　Ⅴ.Start処理
 
+    int employeeAmount = 12;
     void Start()
     {
-        setupEmployeeStatus(12);
+        setupEmployeeStatus(employeeAmount);
         playerStatusInstance = new playerStatus();
         playerStatusInstance.setupKeyAttack();
+    }
+
+    //　Ⅵ.Update処理
+
+    void Update()
+    {
+        callAllEscape(employeeAmount);
     }
 }
